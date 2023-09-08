@@ -152,7 +152,6 @@ class ParallaxAnimation {
 
   handleStart(e) {
     console.log("📢 [script.js:151]", e.target);
-    if (!e.target.matches(".highlights")) return;
     const touch = e.touches[0];
     this.startY = touch.clientY;
   }
@@ -550,6 +549,7 @@ class ParallaxAnimation {
     if (e.type === "touchend") {
       const diffY = e.changedTouches[0].clientY - this.startY;
       console.log("📢 [script.js:551]", Math.abs(diffY));
+      console.log("📢 [script.js:553]", diffY < 0);
       if (Math.abs(diffY) > 100) {
         swipeUp = diffY < 0;
       } else return;
