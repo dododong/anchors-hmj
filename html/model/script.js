@@ -16,12 +16,12 @@ class ParallaxAnimation {
     this.currentStep = 0;
     this.frame = 0.033;
     this.startY = 0;
-    this.isScrollingAutomatically = false;
 
     this.initializeTimelines();
     this.touchStart = this.handleStart.bind(this);
     this.touchEnd = this.handleScroll.bind(this);
     this.wheel = this.handleScroll.bind(this);
+
     this.highLightsClassArray = [
       "part-text-one",
       "part-text-two",
@@ -39,21 +39,34 @@ class ParallaxAnimation {
     this.element = document.querySelector(".highlights");
     this.buttonGroup = document.querySelector(".button-group");
     gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(ScrollToPlugin);
     this.isLoadingComplete = false;
 
     ScrollTrigger.create({
       trigger: ".highlights",
-      start: "top top",
-      end: "bottom bottom",
+      start: "top",
+      end: "+=100%",
       onEnter: () => {
         this.lockAndScroll();
       },
       onEnterBack: () => {
         this.lockAndScroll();
       },
-      markers: true // 마커를 화면에 표시 (개발 중에만 사용)
+      pin: true,
+      anticipatePin: 1,
+      onPin: () => {
+        gsap.to(window, {
+          scrollTo: { y: ".highlights", autoKill: false },
+          duration: 0.5
+        });
+      },
+      onUnpin: () => {
+        gsap.to(window, {
+          scrollTo: { y: ".highlights", autoKill: false },
+          duration: 0.5
+        });
+      }
     });
+
     this.lastStepCount = 9;
     this.exteriorMoveY = 0;
     this.interiorMoveY = 0;
@@ -61,34 +74,22 @@ class ParallaxAnimation {
 
   resetScroll() {
     this.scrollStart = false;
-    clearInterval(this.intervalID);
     document.body.style.overflow = "";
-    this.isScrollingAutomatically = true;
     const imgElement = document.querySelector("#part-car img");
     const [firstImagePath] = this.addImage(1, 2);
+
     if (imgElement && firstImagePath) {
       imgElement.src = firstImagePath;
     }
   }
 
   lockAndScroll() {
-    if (
-      this.isLoadingComplete === false ||
-      this.scrollStart ||
-      this.isScrollingAutomatically
-    )
-      return;
+    if (this.isLoadingComplete === false) return;
     document.body.style.overflow = "hidden";
     this.buttonGroup.style.visibility = "visible";
     this.runTimeline(this.timeline);
     this.currentStep++;
     this.scrollStart = true;
-
-    this.intervalID = setInterval(() => {
-      const yOffset = document.querySelector(".highlights").offsetTop;
-      window.scrollTo({ top: yOffset, behavior: "auto" });
-      console.log("📢 [script.js:65]");
-    }, 300);
   }
 
   classNameChange() {
@@ -185,12 +186,6 @@ class ParallaxAnimation {
 
     this.startAnimation = (exteriorMoveY, interiorMoveY) => {
       this.isLoadingComplete = true;
-
-      this.timeline.to("#part-car img", {
-        duration: 0.01,
-        opacity: 1,
-        ease: Back.linear
-      });
       let images = this.getImages(1, 35);
       images.forEach((image, index) => {
         this.timeline.set(
@@ -198,6 +193,11 @@ class ParallaxAnimation {
           { attr: { src: image.src } },
           index * this.frame
         );
+      });
+      this.timeline.to("#part-car img", 0.5, {
+        duration: 0.1,
+        opacity: 1,
+        ease: Back.linear
       });
       this.timeline.add(
         gsap.to(".part-text.one", {
@@ -527,23 +527,6 @@ class ParallaxAnimation {
         this.resetScroll();
         this.isEnd = false;
         this.currentStep = 0;
-        const yOffset = document.querySelector(".highlights").offsetTop + 30;
-
-        const end = gsap.timeline({ paused: true });
-        end.add(
-          gsap.to(window, {
-            duration: 0.5,
-            scrollTo: { y: yOffset },
-            opacity: 1,
-            ease: Back.linear,
-            onComplete: () => {
-              this.isScrollingAutomatically = false;
-              console.log("📢 [script.js:534]");
-            }
-          })
-        );
-        end.restart();
-        console.log("📢 [script.js:542]");
       }
     });
   }
@@ -557,20 +540,6 @@ class ParallaxAnimation {
       this.isAnimating = false;
       if (this.currentStep < 1) {
         this.resetScroll();
-        const yOffset = document.querySelector(".highlights").offsetTop - 100;
-        const end = gsap.timeline({ paused: true });
-        end.add(
-          gsap.to(window, {
-            duration: 0.5,
-            scrollTo: { y: yOffset },
-            ease: "power1.inOut",
-            onComplete: () => {
-              this.isScrollingAutomatically = false;
-              console.log("📢 [script.js:534]");
-            }
-          })
-        );
-        end.restart();
       }
     });
   }
