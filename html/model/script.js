@@ -519,19 +519,17 @@ class ParallaxAnimation {
 
   runTimeline(tl) {
     this.isAnimating = true;
-    setTimeout(() => {
-      this.disableScroll();
-      this.classNameChange();
-      tl.restart().eventCallback("onComplete", () => {
-        this.enableScroll();
-        this.isAnimating = false;
-        if (this.currentStep > this.lastStepCount) {
-          this.resetScroll();
-          this.isEnd = false;
-          this.currentStep = 0;
-        }
-      });
-    }, 1000);
+    this.disableScroll();
+    this.classNameChange();
+    tl.restart().eventCallback("onComplete", () => {
+      this.enableScroll();
+      this.isAnimating = false;
+      if (this.currentStep > this.lastStepCount) {
+        this.resetScroll();
+        this.isEnd = false;
+        this.currentStep = 0;
+      }
+    });
   }
 
   reverseTimeline(tl) {
@@ -552,7 +550,7 @@ class ParallaxAnimation {
     if (e.type === "touchend") {
       const diffY = e.changedTouches[0].clientY - this.startY;
       console.log("📢 [script.js:551]", Math.abs(diffY));
-      if (Math.abs(diffY) > 200) {
+      if (Math.abs(diffY) > 100) {
         swipeUp = diffY < 0;
       } else return;
     }
