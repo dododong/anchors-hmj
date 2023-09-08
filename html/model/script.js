@@ -83,6 +83,7 @@ class ParallaxAnimation {
   lockAndScroll() {
     if (this.isLoadingComplete === false) return;
     document.body.style.overflow = "hidden";
+    this.buttonGroup.style.visibility = "visible";
     this.runTimeline(this.timeline);
     this.currentStep++;
     this.scrollStart = true;
@@ -103,7 +104,7 @@ class ParallaxAnimation {
       //모바일시 경로
       path = "../../Image/mobile/";
       this.exteriorMoveY = "0%";
-      this.interiorMoveY = "0%";
+      this.interiorMoveY = "40%";
     } else {
       //PC버전시 경로
       path = "../../Image/pc/";
