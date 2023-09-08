@@ -49,7 +49,19 @@ class ParallaxAnimation {
         this.lockAndScroll();
       },
       pin: true,
-      anticipatePin: 1
+      anticipatePin: 1,
+      onPin: () => {
+        gsap.to(window, {
+          scrollTo: { y: ".highlights", autoKill: false },
+          duration: 0.5
+        });
+      },
+      onUnpin: () => {
+        gsap.to(window, {
+          scrollTo: { y: ".highlights", autoKill: false },
+          duration: 0.5
+        });
+      }
     });
 
     this.lastStepCount = 9;
@@ -98,6 +110,7 @@ class ParallaxAnimation {
       this.exteriorMoveY = "-50%";
       this.interiorMoveY = "100%";
     }
+    console.log("📢 [script.js:102]", this.exteriorMoveY);
     let images = [];
     for (let i = start; i < start + count; i++) {
       let imageNumber = String(Math.floor(i)).padStart(4, "0");
@@ -413,7 +426,7 @@ class ParallaxAnimation {
       this.timeline6.add(
         gsap.to(".part-text.seven", {
           duration: 0.5,
-          y: this.interiorMoveY,
+          y: interiorMoveY,
           opacity: 1,
           ease: Back.linear
         })
