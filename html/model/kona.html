@@ -1,0 +1,897 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>KONA｜Hyundai Mobility Japan</title>
+    <meta name="description"
+        content="ヒョンデのIONIQ 5 Lounge AWD Limited Edition（アイオニック５ Lounge AWD Limited Edition）は、ユニークなデザインと最先端の技術が搭載された未来のEV（電気自動車）です。｜Hyundai Mobility Japan">
+    <link rel="stylesheet" href="https://tst-static.hyundaijapan.com/pub-fe/assets/css/common.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /><!-- swiper css -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/planb.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript"
+        src="https://tst-static.hyundaijapan.com/pub-fe/assets/js/lib/common-lib.js"></script>
+    <script type="text/javascript" src="https://tst-static.hyundaijapan.com/pub-fe/assets/js/lib/variable.js"></script>
+    <script type="text/javascript" src="https://tst-pub.hyundaijapan.com/assets/js/common.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+        integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="../../assets/js/lib/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script src="./hammer.min.js"></script>
+</head>
+
+<body>
+    <div class="hmj-wrap">
+        <div class="skip-nav">
+            <a href="#hmjContainer"><span>컨텐츠 바로가기</span></a>
+        </div>
+
+        <!-- header -->
+        <div class="hmj-header on">
+            <!-- header -->
+            <div class="header-outer">
+                <div class="header-cont">
+                    <span class="logo"><a href="/"><img src="../../assets/images/common/ico_header_logo_w.svg"
+                                alt="ヒョンデ,ヒョンデロゴ,ヒュンダイ,ヒュンダイロゴ,現代自動車, 現代自動車ロゴ"></a></span>
+
+                    <div class="gnb-menu-outer">
+                        <div class="gnb-menu-box blur">
+                            <!-- 로그인 전 -->
+                            <div class="account-box">
+                                <a href="" class="btn-sign-in"><span class="ico-account"><img
+                                            src="../../assets/images/common/ico_account.svg"
+                                            alt="account"></span>アカウント</a>
+                            </div>
+                            <!-- // 로그인 후 -->
+                            <ul id="gnb" class="gnb-menu-list ir-count inner-scroll-y">
+                                <li class="ir-item">
+                                    <a href="javascript:common.link.setGaParam('/ioniq5', 'N')">IONIQ 5</a>
+                                </li>
+                                <li class="ir-item">
+                                    <a href="javascript:common.link.setGaParam('/nexo', 'N')">NEXO</a>
+                                </li>
+                                <li class="ir-item">
+                                    <a href="javascript:common.link.setGaParam('/ioniq5/showroom', 'N')">ショールーム</a>
+                                </li>
+                                <li class="ir-item">
+                                    <button class="btn-depth-switch inner-depth"><span>購入</span></button>
+                                    <div class="menu-inner-depth">
+                                        <button class="btn-depth-prev"><span>Back</span></button>
+                                        <p class="inner-depth-tit">購入</p>
+                                        <ul class="ir-count inner-scroll-y">
+                                            <li class="ir-item">
+                                                <button class="btn-depth-switch toggle-menu"><span>購入案内</span></button>
+                                                <ul class="toggle-cont">
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/purchase/purchase-guide', 'N')">オンライン購入サポート</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/purchase/purchase-guide/special-offers', 'N')">今月の購入サポート</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/purchase/purchase-guide/tax-incentive', 'N')">補助金</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="ir-item">
+                                                <button class="btn-depth-switch toggle-menu"><span>見積/試乗</span></button>
+                                                <ul class="toggle-cont">
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/purchase/estimation', 'N')">見積シミュレーション</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/purchase/test-drive/step-01', 'N')">試乗予約</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/purchase/test-drive/store-map', 'N')">試乗ネットワークのご案内</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="ir-item">
+                                                <a
+                                                    href="javascript:common.link.setGaParam('/purchase/specification', 'N')">車両情報検索</a>
+                                            </li>
+                                            <li class="ir-item">
+                                                <button
+                                                    class="btn-depth-switch toggle-menu"><span>ダウンロード</span></button>
+                                                <ul class="toggle-cont">
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/purchase/catalogue-price-download', 'N')">価格表/カタログ</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/purchase/manual-download', 'N')">取扱説明書</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="ir-item">
+                                                <a
+                                                    href="javascript:common.link.setGaParam('/purchase/referral-program', 'N')">リファラルプログラム</a>
+                                            </li>
+                                            <li class="ir-item">
+                                                <a
+                                                    href="javascript:common.link.setGaParam('/purchase/brand-space', 'N')">Hyundai
+                                                    House Harajuku</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="ir-item">
+                                    <button class="btn-depth-switch inner-depth"><span>サービス</span></button>
+                                    <div class="menu-inner-depth">
+                                        <button class="btn-depth-prev"><span>Back</span></button>
+                                        <p class="inner-depth-tit">サービス</p>
+                                        <ul class="ir-count inner-scroll-y">
+                                            <li class="ir-item">
+                                                <button
+                                                    class="btn-depth-switch toggle-menu"><span>Hyundaiサービス</span></button>
+                                                <ul class="toggle-cont">
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/service/customer-service', 'N')">サービス紹介</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/service/customer-service/network', 'N')">サ―ビスセンタ―のご案内</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/service/customer-service/warranty-period', 'N')">保証修理</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="ir-item">
+                                                <a
+                                                    href="javascript:common.link.setGaParam('/service/service-reservation', 'N')">メンテナンス予約</a>
+                                            </li>
+                                            <li class="ir-item">
+                                                <a
+                                                    href="javascript:common.link.setGaParam('/service/charging/station-info', 'N')">充電サービス</a>
+                                            </li>
+                                            <li class="ir-item">
+                                                <a
+                                                    href="javascript:common.link.setGaParam('/service/roadside-assistance', 'N')">ロードサイドアシスタンス</a>
+                                            </li>
+                                            <li class="ir-item">
+                                                <a
+                                                    href="javascript:common.link.setGaParam('/service/recall', 'N')">リコール情報</a>
+                                            </li>
+                                            <li class="ir-item">
+                                                <button
+                                                    class="btn-depth-switch toggle-menu"><span>Bluelink</span></button>
+                                                <ul class="toggle-cont">
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/service/bluelink/guide/create-account', 'N')">ご利用案内</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/service/bluelink/', 'N')">サービス紹介</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="ir-item">
+                                                <button
+                                                    class="btn-depth-switch toggle-menu"><span>ビルトインドラレコ</span></button>
+                                                <ul class="toggle-cont">
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/service/built-in-camera/guide', 'N')">ご利用案内</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/service/built-in-camera', 'N')">サービス紹介</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="ir-item">
+                                                <a
+                                                    href="javascript:common.link.setGaParam('/service/update', 'N')">ナビ/ドラレコアップデート</a>
+                                            </li>
+                                            <li class="ir-item">
+                                                <a
+                                                    href="javascript:common.link.setGaParam('/service/app', 'N')">アプリのダウンロードのご案内</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="ir-item">
+                                    <button class="btn-depth-switch inner-depth"><span>ブランド</span></button>
+                                    <div class="menu-inner-depth">
+                                        <button class="btn-depth-prev"><span>Back</span></button>
+                                        <p class="inner-depth-tit">ブランド</p>
+                                        <ul class="ir-count inner-scroll-y">
+                                            <li class="ir-item">
+                                                <a href="javascript:common.link.setGaParam('/brand', 'N')">概要</a>
+                                            </li>
+                                            <li class="ir-item">
+                                                <button
+                                                    class="btn-depth-switch toggle-menu"><span>ブランドストーリー</span></button>
+                                                <ul class="toggle-cont">
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/brandstory/ioniq', 'N')">IONIQ</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/brandstory/hyundai-bts-environmentday', 'N')">環境の日</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/brandstory/hyundai-bts-earthday', 'N')">アースデイ</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/brandstory/challenge-carbon-neutrality', 'N')">IAA2021</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/brandstory/carbon-neutrality-vision', 'N')">カーボンニュートラル</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="ir-item">
+                                                <button
+                                                    class="btn-depth-switch toggle-menu"><span>ライフスタイル</span></button>
+                                                <ul class="toggle-cont">
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/lifestyle/kira-nakagawa', 'N')">仲川希良</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/lifestyle/kokoro-watanabe', 'N')">渡辺こころ</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/lifestyle/kamishihoro', 'N')">上士幌町</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/lifestyle/kengo-egami', 'N')">江上賢悟</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/lifestyle/fuyuki-shimazu', 'N')">島津冬樹</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/lifestyle/pen-tatsuyamatsui', 'N')">岡野道子</a>
+                                                    </li>
+                                                    <li class="ir-item">
+                                                        <a
+                                                            href="javascript:common.link.setGaParam('/lifestyle/pen-michikookano', 'N')">松井龍哉</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="ir-item">
+                                                <a href="javascript:common.link.setGaParam('/brandstudio', 'N')">Brand
+                                                    Studio</a>
+                                            </li>
+                                            <li class="ir-item">
+                                                <a
+                                                    href="javascript:common.link.setGaParam('/brand/events', 'N')">イベント</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="ir-item">
+                                    <a
+                                        href="javascript:common.link.setGaParam('https://www.hyundai-motor.co.jp/', 'Y')">Hyundai
+                                        Truck &amp; Bus</a>
+
+                                </li>
+                                <li class="ir-item mo-only"><a
+                                        href="javascript:common.link.setGaParam('/shop', 'N')">ショップ</a></li>
+                            </ul>
+                            <button class="btn-menu-close"><span>close</span></button>
+                        </div>
+                    </div>
+
+                    <div class="gnb-mid-menu">
+                        <ul class="mid-list">
+                            <li><a href="javascript:common.link.setGaParam('/ioniq5', 'N')"><span>IONIQ 5</span></a>
+                            </li>
+                            <li><a href="javascript:common.link.setGaParam('/nexo', 'N')"><span>NEXO</span></a></li>
+                            <li><a
+                                    href="javascript:common.link.setGaParam('/ioniq5/showroom', 'N')"><span>Showroom</span></a>
+                            </li>
+                            <li><a href="javascript:common.link.setGaParam('/brandstudio', 'N')"><span>Brand
+                                        Studio</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="gnb-right-menu">
+                        <ul class="gnb-right-list">
+                            <li>
+                                <a href="/shop" class="btn-cart pc-only"><span><img
+                                            src="../../assets/images/main/ico_shop_w.svg" alt="shop"></span></a>
+                            </li>
+                            <li>
+                                <button class="btn-search"><span><img src="../../assets/images/main/ico_search_w.svg"
+                                            alt="search"></span></button>
+                                <div class="gnb-search-dim">
+                                    <div class="search-outer-box">
+                                        <div class="search-cont">
+                                            <div class="inp-outer-box">
+                                                <div class="inp-area">
+                                                    <input type="text" class="inp-item" placeholder="検索キーワードを入力してください。">
+                                                    <button class="inp-close" style="display:none"></button>
+                                                </div>
+                                            </div>
+                                            <div class="btn-box">
+                                                <button class="btn-search-inner">검색</button>
+                                                <button class="btn-search-close">검색종료</button>
+                                            </div>
+                                        </div>
+                                        <div class="keyword-box">
+                                            <p class="top-text" style="display: none;">最近検索ワード</p>
+                                            <p class="top-text" style="display: block;">検索履歴がありません。</p>
+                                            <ul style="display: none;">
+                                                <li><span>モデル</span> <button class="btn-del">삭제</button></li>
+                                            </ul>
+                                            <button class="btn-keyword-del" style="display: none;">すべて削除</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="btn-menu"><span><img src="../../assets/images/main/ico_menu_w.svg"
+                                            alt="menu"></span></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- //header -->
+            <link id="contextPathHolder">
+        </div>
+        <!--//header -->
+
+        <!-- container -->
+        <div id="hmjContainer" class="hmj-container detail-ioniq5 kona">
+
+            <!-- S : LNB -->
+            <div id="menuWrap" class="model-menu-wrap with-gnb">
+                <div class="model-menu">
+                    <h4 class="pc-only">KONA</h4>
+                    <nav class="pc-only">
+                        <ul>
+                            <!-- [D] 첫번째 화면 스크롤 이후 버튼 안 보일 때, on-scroll 클래스 요소에 is-show 클래스 추가 -->
+                            <li class="on-scroll"><a href="">ORDER NOW</a></li>
+                            <li><a href="#">試乗お申込</a></li>
+                            <li><a href="#">購入相談</a></li>
+                            <li><a href="">概要</a></li>
+                            <li><a href="">仕様</a></li>
+                            <li><a href="">価格</a></li>
+                            <li><a href="">カタログ</a></li>
+                        </ul>
+                    </nav>
+                    <h4 class="mo-only">KONA</h4>
+                    <ul class="model-menu-list mo-only">
+                        <li><a href="">ORDER NOW</a></li>
+                        <li><a href="#">試乗お申込</a></li>
+                        <li><a href="#">購入相談</a></li>
+                        <li><a href="">概要</a></li>
+                        <li><a href="">仕様</a></li>
+                        <li><a href="">価格</a></li>
+                        <li><a href="">カタログ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- E : LNB -->
+
+            <!-- S : indicator -->
+            <!--        <div id="indicator" class="position-location with-gnb">-->
+            <!--            <ul>-->
+            <!--                <li class="indi-limited"><a href="#limited">Limited Edition</a></li>-->
+            <!--                <li class="indi-exterior"><a href="#exterior">Exterior Color</a></li>-->
+            <!--                <li class="indi-Interior"><a href="#interior">Interior Color</a></li>-->
+            <!--                <li class="indi-gallery"><a href="#gallery">Gallery</a></li>-->
+            <!--                <li class="indi-program"><a href="#program">Program</a></li>-->
+            <!--                <li class="indi-lineup"><a href="#lineup">Lineup</a></li>-->
+            <!--            </ul>-->
+            <!--        </div>-->
+            <!-- //E : indicator -->
+
+            <div class="hmj-content detail-ioniq5 kona">
+                <!-- S : Key Visual -->
+
+                <div class="section-container top-video" style="background:#aaa;">
+                    <span style="display: block;padding-top: 120px;font-size: 60px; text-align:center;">key
+                        visual</span>
+                    <!--                <div class="top-main-visual">-->
+                    <!--                    <img id="keyVisualImg" class="pc-only" src="../../assets/images/planb/le/img_ioniq5_keyvisual01.jpg" alt="IONIQ 5 (アイオニック 5) Lounge AWD Limited Edition - Hyundai Mobility Japan (ヒョンデモビリティジャパン)"/>-->
+                    <!--                    <img id="keyVisualImgM" class="mo-only" src="../../assets/images/planb/le/img_ioniq5_keyvisual01_mo.png" alt="IONIQ 5 (アイオニック 5) Lounge AWD Limited Edition - Hyundai Mobility Japan (ヒョンデモビリティジャパン)"/>-->
+                    <!--                </div>-->
+                    <!--                <div class="top-video-btn">-->
+                    <!--                    <div class="btn-cont">-->
+                    <!--                        <a href="#" class="btn btn-type4"><span>ORDER NOW</span></a>-->
+                    <!--                        <a href="#" class="btn-type-assur"><span class="blind">Hyundai Assurance</span></a>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                    <!--                <div class="scroll-down pc-only">-->
+                    <!--                    <p class="tit not-fadein">スクロールダウン</p>-->
+                    <!--                    <div class="arrow">-->
+                    <!--                        <p class="not-fadein">⌵</p>-->
+                    <!--                        <p class="not-fadein">⌵</p>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                </div>
+                <!-- E : Key Visual -->
+
+                <!-- S : highlights 1 -->
+                <div class="section-container section-indicator highlights">
+                    <!-- S : img 와 button을 묶어주는 div.img-button-wrapper 영역 생성 -->
+                    <div class="img-button-wrapper">
+                        <div id="part-car">
+                            <img src="../../Image/pc/0001.png" draggable="false" />
+                        </div>
+                        <!-- img 와 button을 묶어주는 div.img-button-wrapper 영역 생성 -->
+                        <div class="button-group">
+                            <button type="button" class="btn-highlight on">Monotone</button>
+                            <button type="button" class="btn-highlight">Two Tone</button>
+                        </div>
+                    </div>
+                    <!-- E : img 와 button을 묶어주는 영역 생성 -->
+                    <!-- 230906 기존 part-visual 영역 주석 처리 -->
+                    <!--<div class="part-visual">
+                        <img src="../../assets/images/planb/kona/kona_highlight_exterior_02.png" alt="" width="1000">
+                        <div class="button-group">
+                            <button type="button" class="btn-highlight on">Monotone</button>
+                            <button type="button" class="btn-highlight">Two Tone</button>
+                        </div>
+                    </div>-->
+                    <div class="part-text" draggable="false">
+                        <div class="part-text one">
+                            <em class="category-title">Highlight</em>
+                            <strong class="title">Your future mobility, KONA</strong>
+                            <ul class="explain-highlights">
+                                未来志向のデザインと広い室内空間、特別な装備により、<br>KONAは新しいカーライフを提供します。
+                            </ul>
+                            <ul class="feature-list">
+                                <li class="item">
+                                    <span>一充電走行距離</span>
+                                    <em>616 <span>km*</span></em>
+                                </li>
+                                <li class="item">
+                                    <span>最高出力</span>
+                                    <em>150 <span>kW</span></em>
+                                </li>
+                                <li class="item">
+                                    <span>バッテリー容量</span>
+                                    <em>64.8 <span>kWh*</span></em>
+                                </li>
+                            </ul>
+                            <span class="caution">*WLTCモードでの自社測定値。 ( Voyage)</span>
+                        </div>
+                        <div class="part-text two">
+                            <em class="category-title">Design</em>
+                            <strong class="title">ダイナミックサイドプロポーション</strong>
+                            <ul class="explain-highlights">
+                                シャープなサイドキャラクターラインやベルトラインを包むクロームモールディングは、KONAの未来的なスタイリングを引き立てます。
+                            </ul>
+                        </div>
+                        <div class="part-text three">
+                            <em class="category-title">Design - 2</em>
+                            <strong class="title">ダイナミックサイドプロポーション</strong>
+                            <ul class="explain-highlights">
+                                シャープなサイドキャラクターラインやベルトラインを包むクロームモールディングは、KONAの未来的なスタイリングを引き立てます。
+                            </ul>
+                        </div>
+
+                        <div class="part-text four">
+                            <em class="category-title">Charging - 3</em>
+                            <strong class="title">ダイナミックサイドプロポーション</strong>
+                            <ul class="explain-highlights">
+                                シャープなサイドキャラクターラインやベルトラインを包むクロームモールディングは、KONAの未来的なスタイリングを引き立てます。
+                            </ul>
+                        </div>
+                        <div class="part-text five">
+                            <em class="category-title">Design - 3</em>
+                            <strong class="title">ダイナミックサイドプロポーション</strong>
+                            <ul class="explain-highlights">
+                                シャープなサイドキャラクターラインやベルトラインを包むクロームモールディングは、KONAの未来的なスタイリングを引き立てます。
+                            </ul>
+                        </div>
+
+                        <div class="part-text six space">
+                            <em class="category-title">Space</em>
+                            <strong class="title">スリムでワイドな水平レイアウトと<br class="pc-only" />大型ディスプレイによるハイテクイ<br
+                                    class="pc-only" />メージを実現</strong>
+                        </div>
+
+                        <div class="part-text seven space">
+                            <em class="category-title">Space - 2 </em>
+                            <strong class="title">スリムでワイドな水平レイアウトと<br class="pc-only" />大型ディスプレイによるハイテクイ<br
+                                    class="pc-only" />メージを実現</strong>
+                        </div>
+
+                        <div class="part-text eight space">
+                            <em class="category-title">Space - 3 </em>
+                            <strong class="title">スリムでワイドな水平レイアウトと<br class="pc-only" />大型ディスプレイによるハイテクイ<br
+                                    class="pc-only" />メージを実現</strong>
+                        </div>
+
+                        <div class="part-text nine space">
+                            <em class="category-title">Space - 3 </em>
+                            <strong class="title">スリムでワイドな水平レイアウトと<br class="pc-only" />大型ディスプレイによるハイテクイ<br
+                                    class="pc-only" />メージを実現</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="part-text four">
+                    <em class="category-title">Space</em>
+                    <strong class="title">スリムでワイドな水平レイアウトと<br class="pc-only" />大型ディスプレイによるハイテクイ<br
+                            class="pc-only" />メージを実現</strong>
+                </div> -->
+            <!-- E : highlights 2 -->
+
+            <!-- S : 360VR -->
+            <div class="section-container section-indicator vr gallery">
+                <div class="inner-align">
+                    <div class="txt-area">
+                        <h2 class="section-title center-align is-fadein">360VR</h2>
+                    </div>
+                    <div class="select-trim">
+                        <button type="button" id="selectTrim" class="current-trim">KONA Lounge</button>
+                        <ul class="list-trim">
+                            <li class="item" data-trim-name="KONA Lounge">KONA Lounge</li>
+                            <li class="item" data-trim-name="KONA Lounge 1">KONA Lounge 1</li>
+                            <li class="item" data-trim-name="KONA Lounge 2">KONA Lounge 2</li>
+                            <li class="item" data-trim-name="KONA Lounge 3">KONA Lounge 3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-vr">
+                    <div class="btn-cont">
+                        <a href="#" class="btn btn-type3" id="bgExterior"><span>ボディカラー</span></a>
+                        <a href="#" class="btn btn-type4" id="bgInterior"><span>内装カラー</span></a>
+                    </div>
+                    <div class="vr-inner is-fadein">
+                        <!-- [D] 임시 이미지 적용, vr 내부는 이곳에 적용 부탁드립니다. -->
+                        <img id="vrImgEx" class="" src="../../assets/images/planb/kona/vr_exterior.png" alt="" />
+                        <img id="vrImgIn" class="" src="../../assets/images/planb/kona/vr_interior.png" alt=""
+                            style="display:none;" />
+                    </div>
+                </div>
+                <div class="select-chip">
+                    <!-- [D] 컬러 칩 변경 시 이름도 변경 -->
+                    <p id="colorName" class="color-name">アトラスホワイト</p>
+                    <div class="chip-exterior">
+                        <a href="#" class="chip-color on" data-color-name="ex_color1"><img
+                                src="../../assets/images/planb/kona/ex_color_01.png" alt="" width="64"></a>
+                        <a href="#" class="chip-color" data-color-name="ex_color2"><img
+                                src="../../assets/images/planb/kona/ex_color_02.png" alt="" width="64"></a>
+                        <a href="#" class="chip-color" data-color-name="ex_color3"><img
+                                src="../../assets/images/planb/kona/ex_color_03.png" alt="" width="64"></a>
+                        <a href="#" class="chip-color" data-color-name="ex_color4"><img
+                                src="../../assets/images/planb/kona/ex_color_04.png" alt="" width="64"></a>
+                        <a href="#" class="chip-color" data-color-name="ex_color5"><img
+                                src="../../assets/images/planb/kona/ex_color_05.png" alt="" width="64"></a>
+                        <a href="#" class="chip-color" data-color-name="ex_color6"><img
+                                src="../../assets/images/planb/kona/ex_color_06.png" alt="" width="64"></a>
+                    </div>
+                    <div class="chip-interior" style="display:none;">
+                        <a href="#" class="chip-color on" data-color-name="in_color1"><img
+                                src="../../assets/images/planb/kona/in_color_01.png" alt="" width="268"></a>
+                        <a href="#" class="chip-color" data-color-name="in_color2"><img
+                                src="../../assets/images/planb/kona/in_color_02.png" alt="" width="268"></a>
+                        <a href="#" class="chip-color" data-color-name="in_color3"><img
+                                src="../../assets/images/planb/kona/in_color_03.png" alt="" width="268"></a>
+                    </div>
+                    <p class="info-text">※上記画像は実際の車両カラーと異なる場合があり、事前予告なしに変更されることがあります。</p>
+                </div>
+            </div>
+            <script>
+                $(document).on('click', '#selectTrim', function (e) {
+                    e.preventDefault();
+                    $('.list-trim').toggle();
+                });
+                $(document).on('click', '.list-trim li', function (e) {
+                    e.preventDefault();
+                    var $trimName = $(this).data('trim-name');
+                    $('.list-trim').hide();
+                    $('#selectTrim').html($trimName);
+                });
+
+                $(document).on('click', '.chip-color', function (e) {
+                    e.preventDefault();
+                    var $colorName = $(this).data('color-name');
+                    $('#colorName').html($colorName);
+
+                    if ($(this).hasClass('on')) {
+                    } else {
+                        $('.chip-color').removeClass('on');
+                        $(this).toggleClass('on');
+                    }
+                });
+
+                $(document).on('click', '#bgExterior', function (e) {
+                    e.preventDefault();
+                    if ($(this).hasClass('btn-type3')) {
+                    } else {
+                        $(this).removeClass('btn-type4').addClass('btn-type3');
+                        $('#bgInterior').addClass('btn-type4').removeClass('btn-type3');
+                    }
+
+                    $('#vrImgEx, .chip-exterior').show();
+                    $('#vrImgIn, .chip-interior').hide();
+                    $('.chip-color:first-of-type').addClass('on');
+                })
+
+                $(document).on('click', '#bgInterior', function (e) {
+                    e.preventDefault();
+                    if ($(this).hasClass('btn-type3')) {
+                    } else {
+                        $(this).removeClass('btn-type4').addClass('btn-type3');
+                        $('#bgExterior').addClass('btn-type4').removeClass('btn-type3');
+                    }
+                    $('#vrImgEx, .chip-exterior').hide();
+                    $('#vrImgIn, .chip-interior').show();
+                    $('.chip-color:first-of-type').addClass('on');
+                });
+
+
+            </script>
+            <!-- E : 360VR -->
+
+            <!-- S : menu3 -->
+            <div class="section-container section-indicator menu3"></div>
+            <!-- E : menu3 -->
+        </div>
+    </div>
+    <!--//container -->
+
+    <!-- footer -->
+    <div class="hmj-footer">
+        <div class="footer-top">
+            <ul>
+                <li>
+                    <ul>
+                        <li><a href="#">SHOW ROOM</a></li>
+                        <li><a href="#">IONIQ 5</a></li>
+                        <li><a href="#">NEXO</a></li>
+                        <li><a href="#">ブランド拠点</a></li>
+                        <li><a href="#">MOCEAN</a></li>
+                    </ul>
+                </li>
+                <li class="mo-toggle">
+                    <div class="item">
+                        <button class="tit-btn">Purchase</button>
+                        <div class="toggle-outer-cont">
+                            <ul class="cont">
+                                <li><a href="#">オンライン購入のご案内</a></li>
+                                <li><a href="#">今月の購入特典</a></li>
+                                <li><a href="#">政府補助金</a></li>
+                                <li><a href="#">オンライン契約</a></li>
+                                <li><a href="#">見積シミュレーション</a></li>
+                                <li><a href="#">試乗</a></li>
+                                <li><a href="#">購入相談申込</a></li>
+                                <li><a href="#">仕様百科</a></li>
+                                <li><a href="#">カタログダウンロード</a></li>
+                                <li><a href="#">価格表ダウンロード</a></li>
+                                <li><a href="#">Referral code</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="mo-toggle">
+                    <div class="item">
+                        <button class="tit-btn">Service</button>
+                        <div class="toggle-outer-cont">
+                            <ul class="cont">
+                                <li><a href="#">サービスネットワーク</a></li>
+                                <li><a href="#">充電スポット</a></li>
+                                <li><a href="#">RSAサービス</a></li>
+                                <li><a href="#">整備予約</a></li>
+                                <li><a href="#">リコール情報</a></li>
+                                <li><a href="#">BLUELINK</a></li>
+                                <li><a href="#">ビルトインカメラ</a></li>
+                                <li><a href="#">ナビ/カメラアップデート</a></li>
+                                <li><a href="#">提携サービス</a></li>
+                                <li><a href="#">アプリ設置</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="mo-toggle">
+                    <div class="item">
+                        <button class="tit-btn">Brand Story</button>
+                        <div class="toggle-outer-cont">
+                            <ul class="cont">
+                                <li><a href="#">IONIQ 5</a></li>
+                                <li><a href="#">IONIQ 5 Teasing</a></li>
+                                <li><a href="#">Mini 45EV</a></li>
+                                <li><a href="#">IONIQ</a></li>
+                                <li><a href="#">Hyundai X BTS</a></li>
+                                <li><a href="#">#Thisisus</a></li>
+                                <li><a href="#">Hyundai X BBC</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <ul>
+                        <li><a href="#">SHOP</a></li>
+                        <li><a href="#">イベント</a></li>
+                        <li><a href="#">お知らせ</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">1:1お問合せ</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <div class="left-logo"><img src="../../assets/images/common/ico_footer_logo.svg"
+                    alt="ヒョンデ,ヒョンデロゴ,ヒュンダイ,ヒュンダイロゴ,現代自動車, 現代自動車ロゴ"></div>
+            <div class="center-text">
+                <ul>
+                    <li><a href="#">プライバシーポリシー</a></li>
+                    <li><a href="#">利用規約</a></li>
+                    <li><a href="#">Cookieポリシー </a></li>
+                    <li class="lang-jp"><a href="#"><span class="ico"><img
+                                    src="../../assets/images/common/ico_country_jp.png" alt="japan"></span>日本語</a>
+                    </li>
+                </ul>
+                <p class="copyright">COPYRIGHT &#x24D2; HYUNDAI. ALL RIGHTS RESERVED.</p>
+            </div>
+            <div class="right-sns">
+                <ul>
+                    <li><a href="#"><img src="../../assets/images/common/ico_youtube.svg" alt="youtube"></a>
+                    </li>
+                    <li><a href="#"><img src="../../assets/images/common/ico_twitter.svg" alt="twitter"></a>
+                    </li>
+                    <li><a href="#"><img src="../../assets/images/common/ico_instagram.svg" alt="instagram"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--//footer -->
+    </div>
+
+    <div class="btn-top-box">
+        <a href="#" title="move to top" role="button" class="btn-top">
+            <span class="blind">Top</span>
+        </a>
+    </div>
+
+    <script type="text/javascript" src="../../assets/js/pip-common.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.set(".exterior-color .exterior02 .bg .car-animation", { xPercent: 70 });
+
+            var tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".exterior-color .exterior02",
+                    scrub: true,
+                }
+            })
+            tl.to(".exterior-color .exterior02 .bg .car-animation", { xPercent: 7, duration: 2 })
+            tl.to(".exterior-color .exterior02 .bg .car-animation .tire", { rotation: -720, duration: 2 }, "<")
+
+        })
+
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.set(".exterior-color .exterior03 .bg .car-animation", { xPercent: -70 });
+            var tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".exterior-color .exterior03",
+                    scrub: true,
+                }
+            })
+            tl.to(".exterior-color .exterior03 .bg .car-animation", { xPercent: -7, duration: 2 })
+            tl.to(".exterior-color .exterior03 .bg .car-animation .tire", { rotation: 720, duration: 2 }, "<")
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            ScrollTrigger.saveStyles(".mobile, .desktop");
+
+
+            var contWidth = $('.exterior-color .exterior04 .bg').width();
+
+            var frame_count = 2,
+                offset_value = contWidth;
+
+            ScrollTrigger.matchMedia({
+                "(min-width: 1120px)": function () {
+                    gsap.set(".exterior-color .exterior04 .bg .car-animation", { xPercent: 70 });
+
+                    gsap.to(".exterior04 .car-animation", {
+                        backgroundPosition: (-offset_value * frame_count) + "px 0",
+                        ease: "steps(" + frame_count + ")",
+                        xPercent: 20,
+                        duration: 2,
+                        scrollTrigger: {
+                            trigger: ".exterior04",
+                            pin: true,
+                            scrub: true
+                        }
+                    });
+                },
+                "(max-width: 1119px)": function () {
+                    gsap.set(".exterior-color .exterior04 .bg .car-animation", { xPercent: 0 });
+
+                    gsap.to(".exterior04 .car-animation", {
+                        backgroundPosition: (-offset_value * frame_count * 2) - (contWidth * 0.45) + "px 0",
+                        ease: "steps(" + frame_count + ")",
+                        xPercent: 0,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: ".exterior04",
+                            pin: true,
+                            scrub: true
+                        }
+                    });
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            ScrollTrigger.saveStyles(".mobile, .desktop");
+
+            var contWidth = $('.exterior-color .exterior05 .bg').width();
+
+            var frame_count = 2,
+                offset_value = contWidth;
+
+            ScrollTrigger.matchMedia({
+                "(min-width: 1120px)": function () {
+                    gsap.set(".exterior-color .exterior05 .bg .car-animation", { xPercent: -80 });
+
+                    gsap.to(".exterior05 .car-animation", {
+                        backgroundPosition: (-offset_value * frame_count) + "px 0",
+                        ease: "steps(" + frame_count + ")",
+                        xPercent: -20,
+                        duration: 2,
+                        scrollTrigger: {
+                            trigger: ".exterior05",
+                            pin: true,
+                            scrub: true,
+                            end: '+=200%',
+                        }
+                    });
+                },
+                "(max-width: 1119px)": function () {
+                    gsap.set(".exterior-color .exterior05 .bg .car-animation", { xPercent: 0 });
+
+                    gsap.to(".exterior05 .car-animation", {
+                        backgroundPosition: (-offset_value * frame_count * 2) - (contWidth * 0.47) + "px 0",
+                        ease: "steps(" + frame_count + ")",
+                        xPercent: 0,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: ".exterior05",
+                            pin: true,
+                            scrub: true,
+                        }
+                    });
+                }
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
