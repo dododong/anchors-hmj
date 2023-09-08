@@ -35,13 +35,12 @@ class ParallaxAnimation {
 
     this.element = document.querySelector(".highlights");
     this.buttonGroup = document.querySelector(".button-group");
-
     gsap.registerPlugin(ScrollTrigger);
     this.isLoadingComplete = false;
 
     ScrollTrigger.create({
       trigger: ".highlights",
-      start: "top top",
+      start: "top",
       end: "+=100%",
       onEnter: () => {
         this.lockAndScroll();
@@ -49,7 +48,8 @@ class ParallaxAnimation {
       onEnterBack: () => {
         this.lockAndScroll();
       },
-      pin: true
+      pin: true,
+      anticipatePin: 1
     });
 
     this.lastStepCount = 9;
@@ -98,7 +98,6 @@ class ParallaxAnimation {
       this.exteriorMoveY = "-50%";
       this.interiorMoveY = "100%";
     }
-    console.log("📢 [script.js:102]", this.exteriorMoveY);
     let images = [];
     for (let i = start; i < start + count; i++) {
       let imageNumber = String(Math.floor(i)).padStart(4, "0");
@@ -149,21 +148,22 @@ class ParallaxAnimation {
     const localInteriorMoveY = this.interiorMoveY;
 
     const preloadImages = () => {
-      let loadCount = 0;
-
-      allImage.forEach((src, index) => {
-        this.exteriorMoveY = 10;
-        const img = new Image();
-        img.src = src;
-        img.onload = () => {
-          loadCount += 1;
-          this.loadedImages[index] = img;
-          if (loadCount === allImage.length) {
-            this.startAnimation(localExteriorMoveY, localInteriorMoveY);
-          }
-        };
+      const imagePromises = allImage.map(
+        (src, index) =>
+          new Promise(resolve => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+              this.loadedImages[index] = img;
+              resolve();
+            };
+          })
+      );
+      Promise.all(imagePromises).then(() => {
+        this.startAnimation(localExteriorMoveY, localInteriorMoveY);
       });
     };
+
     preloadImages();
 
     this.startAnimation = (exteriorMoveY, interiorMoveY) => {
@@ -196,6 +196,7 @@ class ParallaxAnimation {
 
       this.timeline1.to(".part-text.one", 0.5, {
         duration: 0.5,
+        opacity: 0,
         y: "-250%",
         ease: Back.linear
       });
