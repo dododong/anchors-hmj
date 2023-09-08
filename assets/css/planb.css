@@ -5226,6 +5226,7 @@
   height: 100vh;
   padding-bottom: 0 !important;
   background-image: linear-gradient(to bottom, #fff 20%, #dee2e5 59%, #d9dfe5);
+  top: 0px !important;
 }
 .kona .highlights .part-visual {
   display: flex;
@@ -5442,11 +5443,11 @@
 /* E: Highlight */
 
 .kona .highlights .button-group {
- margin-top: 40px;
- display: flex;
- justify-content: center;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
   column-gap: 80px;
- transform: translateX(-180px) !important;
+  transform: translateX(-180px) !important;
 }
 .kona .highlights .button-group .btn-highlight {
   border-bottom: 2px solid transparent;
@@ -5496,7 +5497,7 @@
   .kona #part-car {
     height: 45%;
     top: 0;
-    transform: translate( -50%, 0);
+    transform: translate(-50%, 0);
   }
   .kona .highlights.part-text-six #part-car,
   .kona .highlights.part-text-seven #part-car,
@@ -5521,7 +5522,7 @@
   .kona .highlights .part-text.two,
   .kona .highlights .part-text.three,
   .kona .highlights .part-text.four,
-  .kona .highlights .part-text.five{
+  .kona .highlights .part-text.five {
     width: 80%;
     left: 50%;
     transform: translate(-50%, 400%);
@@ -5546,7 +5547,7 @@
   .kona .highlights .part-text.two,
   .kona .highlights .part-text.three,
   .kona .highlights .part-text.four,
-  .kona .highlights .part-text.five{
+  .kona .highlights .part-text.five {
     width: 100%;
   }
 }

@@ -18,6 +18,9 @@ class ParallaxAnimation {
     this.startY = 0;
 
     this.initializeTimelines();
+    this.touchStart = this.handleStart.bind(this);
+    this.touchEnd = this.handleScroll.bind(this);
+    this.wheel = this.handleScroll.bind(this);
 
     this.highLightsClassArray = [
       "part-text-one",
@@ -128,26 +131,28 @@ class ParallaxAnimation {
   }
 
   addSwipeListeners() {
-    window.addEventListener("touchstart", this.handleStart.bind(this));
-    window.addEventListener("touchend", this.handleScroll.bind(this));
+    window.addEventListener("touchstart", this.touchStart);
+    window.addEventListener("touchend", this.touchEnd);
   }
 
   removeSwipeListeners() {
-    window.removeEventListener("touchstart", this.handleStart.bind(this));
-    window.removeEventListener("touchend", this.handleScroll.bind(this));
+    window.removeEventListener("touchstart", this.touchStart);
+    window.removeEventListener("touchend", this.touchEnd);
   }
 
   enableScroll() {
-    window.addEventListener("wheel", this.handleScroll.bind(this));
+    window.addEventListener("wheel", this.wheel);
     this.addSwipeListeners();
   }
 
   disableScroll() {
-    window.removeEventListener("wheel", this.handleScroll.bind(this));
+    window.removeEventListener("wheel", this.wheel);
     this.removeSwipeListeners();
   }
 
   handleStart(e) {
+    console.log("📢 [script.js:151]", e.target);
+    if (!e.target.matches(".highlights")) return;
     const touch = e.touches[0];
     this.startY = touch.clientY;
   }
@@ -514,20 +519,19 @@ class ParallaxAnimation {
 
   runTimeline(tl) {
     this.isAnimating = true;
-    this.disableScroll();
-    this.classNameChange();
-
-    tl.restart().eventCallback("onComplete", () => {
-      this.enableScroll();
-      this.isAnimating = false;
-
-      console.log("📢 [script.js:469]", this.currentStep);
-      if (this.currentStep > this.lastStepCount) {
-        this.resetScroll();
-        this.isEnd = false;
-        this.currentStep = 0;
-      }
-    });
+    setTimeout(() => {
+      this.disableScroll();
+      this.classNameChange();
+      tl.restart().eventCallback("onComplete", () => {
+        this.enableScroll();
+        this.isAnimating = false;
+        if (this.currentStep > this.lastStepCount) {
+          this.resetScroll();
+          this.isEnd = false;
+          this.currentStep = 0;
+        }
+      });
+    }, 1000);
   }
 
   reverseTimeline(tl) {
@@ -537,7 +541,6 @@ class ParallaxAnimation {
     tl.reverse().eventCallback("onReverseComplete", () => {
       this.enableScroll();
       this.isAnimating = false;
-
       if (this.currentStep < 1) {
         this.resetScroll();
       }
@@ -546,12 +549,12 @@ class ParallaxAnimation {
 
   handleScroll(e) {
     let swipeUp = e.type === "wheel" && e.deltaY > 0;
-
     if (e.type === "touchend") {
       const diffY = e.changedTouches[0].clientY - this.startY;
-      if (Math.abs(diffY) > 100) {
+      console.log("📢 [script.js:551]", Math.abs(diffY));
+      if (Math.abs(diffY) > 200) {
         swipeUp = diffY < 0;
-      }
+      } else return;
     }
 
     if (this.isAnimating) return;
