@@ -49,11 +49,12 @@ class ParallaxAnimation {
       onEnterBack: () => {
         this.lockAndScroll();
       },
-      pin: true,
-      markers: true // 마커를 화면에 표시 (개발 중에만 사용)
+      pin: true
     });
 
     this.lastStepCount = 9;
+    this.exteriorMoveY = 0;
+    this.interiorMoveY = 0;
   }
 
   resetScroll() {
@@ -89,10 +90,15 @@ class ParallaxAnimation {
     if (mediaQuery.matches) {
       //모바일시 경로
       path = "../../Image/mobile/";
+      this.exteriorMoveY = "0%";
+      this.interiorMoveY = "0%";
     } else {
       //PC버전시 경로
       path = "../../Image/pc/";
+      this.exteriorMoveY = "-50%";
+      this.interiorMoveY = "100%";
     }
+    console.log("📢 [script.js:102]", this.exteriorMoveY);
     let images = [];
     for (let i = start; i < start + count; i++) {
       let imageNumber = String(Math.floor(i)).padStart(4, "0");
@@ -139,25 +145,28 @@ class ParallaxAnimation {
 
   initializeTimelines() {
     let allImage = this.addImage(1, 690);
+    const localExteriorMoveY = this.exteriorMoveY;
+    const localInteriorMoveY = this.interiorMoveY;
 
     const preloadImages = () => {
       let loadCount = 0;
 
       allImage.forEach((src, index) => {
+        this.exteriorMoveY = 10;
         const img = new Image();
         img.src = src;
         img.onload = () => {
           loadCount += 1;
           this.loadedImages[index] = img;
           if (loadCount === allImage.length) {
-            startAnimation();
+            this.startAnimation(localExteriorMoveY, localInteriorMoveY);
           }
         };
       });
     };
     preloadImages();
 
-    const startAnimation = () => {
+    this.startAnimation = (exteriorMoveY, interiorMoveY) => {
       this.isLoadingComplete = true;
       let images = this.getImages(1, 35);
       images.forEach((image, index) => {
@@ -175,7 +184,7 @@ class ParallaxAnimation {
       this.timeline.add(
         gsap.to(".part-text.one", {
           duration: 0.5,
-          y: "-50%",
+          y: exteriorMoveY,
           opacity: 1,
           ease: Back.linear,
           delay: 0.5
@@ -203,7 +212,7 @@ class ParallaxAnimation {
       this.timeline1.add(
         gsap.to(".part-text.two", {
           duration: 0.5,
-          y: "-50%",
+          y: exteriorMoveY,
           opacity: 1,
           ease: Back.linear
         }),
@@ -231,7 +240,7 @@ class ParallaxAnimation {
       this.timeline2.add(
         gsap.to(".part-text.three", {
           duration: 0.5,
-          y: "-50%",
+          y: exteriorMoveY,
           opacity: 1,
           ease: Back.linear,
           delay: 2.2
@@ -312,7 +321,7 @@ class ParallaxAnimation {
       timeline3_child.add(
         gsap.to(".part-text.four", {
           duration: 0.5,
-          y: "-50%",
+          y: exteriorMoveY,
           opacity: 1,
           ease: Back.linear
         })
@@ -341,7 +350,7 @@ class ParallaxAnimation {
       this.timeline4.add(
         gsap.to(".part-text.five", {
           duration: 0.5,
-          y: "-50%",
+          y: exteriorMoveY,
           opacity: 1,
           ease: Back.linear
         })
@@ -376,7 +385,7 @@ class ParallaxAnimation {
       this.timeline5.add(
         gsap.to(".part-text.six", {
           duration: 0.5,
-          y: "100%",
+          y: interiorMoveY,
           opacity: 1,
           ease: Back.linear
         })
@@ -403,7 +412,7 @@ class ParallaxAnimation {
       this.timeline6.add(
         gsap.to(".part-text.seven", {
           duration: 0.5,
-          y: "100%",
+          y: this.interiorMoveY,
           opacity: 1,
           ease: Back.linear
         })
@@ -429,7 +438,7 @@ class ParallaxAnimation {
       this.timeline7.add(
         gsap.to(".part-text.eight", {
           duration: 0.5,
-          y: "100%",
+          y: interiorMoveY,
           opacity: 1,
           ease: Back.linear
         })
@@ -444,7 +453,7 @@ class ParallaxAnimation {
         ease: Back.linear
       });
 
-      let images8 = this.addImage(581, 690);
+      let images8 = this.getImages(581, 690);
       images8.forEach((image, index) => {
         this.timeline8.set(
           "#part-car img",
@@ -456,7 +465,7 @@ class ParallaxAnimation {
       this.timeline8.add(
         gsap.to(".part-text.nine", {
           duration: 0.5,
-          y: "100%",
+          y: interiorMoveY,
           opacity: 1,
           ease: Back.linear
         })

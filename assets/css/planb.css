@@ -5444,7 +5444,8 @@
 .kona .highlights .button-group {
  margin-top: 40px;
  display: flex;
- column-gap: 80px;
+ justify-content: center;
+  column-gap: 80px;
  transform: translateX(-180px) !important;
 }
 .kona .highlights .button-group .btn-highlight {
@@ -5469,16 +5470,16 @@
 /* s: 230907 chaewon css 수정*/
 
 .kona .highlights .part-text {
-  margin-left: 2vw;
-  width: 60%;
+  margin-left: 6vw;
+  width: 58%;
 }
 .kona .highlights .img-button-wrapper {
   position: relative;
 }
 .kona .highlights .button-group {
   position: absolute;
-  top: 9vw;
-  left: -16vw;
+  top: 13vw;
+  left: -19vw;
   width: 300px;
 }
 @media screen and (max-width: 1119px) {
@@ -5495,7 +5496,7 @@
   }
   .kona .highlights .button-group {
     position: absolute;
-    top: 9vw;
+    top: -7vw;
     left: 6vw;
   }
 }
@@ -5511,9 +5512,20 @@
 .kona .highlights.part-text-nine .part-text.space {
   margin-left: 0;
   width: auto;
-  left: -18vw;
+  left: -22vw;
 }
 @media screen and (max-width: 1119px) {
+  .kona #part-car {
+    height: 45%;
+    top: 0;
+    transform: translate( -50%, 0);
+  }
+  .kona .highlights.part-text-six #part-car,
+  .kona .highlights.part-text-seven #part-car,
+  .kona .highlights.part-text-eight #part-car,
+  .kona .highlights.part-text-nine #part-car {
+    height: 55%;
+  }
   .kona .highlights .part-text.space,
   .kona .highlights.part-text-six .part-text.space,
   .kona .highlights.part-text-seven .part-text.space,
