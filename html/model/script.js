@@ -96,6 +96,9 @@ class ParallaxAnimation {
           this.isScrollingAutomatically = false;
         }
       });
+      const yOffset = document.querySelector(".highlights").offsetTop;
+      window.scrollTo({ top: yOffset, behavior: "auto" });
+      console.log("📢 [script.js:65]");
     }, 300);
   }
 
