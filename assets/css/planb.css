@@ -5217,6 +5217,7 @@
   height: 100%;
   object-fit: cover; /* 이미지 크기를 조절하여 요소의 경계 내에 이미지를 맞춥니다. */
   object-position: center; /* 이미지를 중앙에 위치시킵니다. */
+  opacity: 0;
 }
 
 .kona .highlights {

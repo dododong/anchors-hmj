@@ -54,6 +54,8 @@ class ParallaxAnimation {
       },
       markers: true // 마커를 화면에 표시 (개발 중에만 사용)
     });
+
+    this.yOffset = document.querySelector(".highlights").offsetTop;
     this.lastStepCount = 9;
     this.exteriorMoveY = 0;
     this.interiorMoveY = 0;
@@ -61,6 +63,7 @@ class ParallaxAnimation {
 
   resetScroll() {
     this.scrollStart = false;
+    gsap.killTweensOf(window);
     clearInterval(this.intervalID);
     document.body.style.overflow = "";
     this.isScrollingAutomatically = true;
@@ -85,9 +88,14 @@ class ParallaxAnimation {
     this.scrollStart = true;
 
     this.intervalID = setInterval(() => {
-      const yOffset = document.querySelector(".highlights").offsetTop;
-      window.scrollTo({ top: yOffset, behavior: "auto" });
-      console.log("📢 [script.js:65]");
+      gsap.to(window, {
+        duration: 0.1,
+        scrollTo: { y: this.element.offsetTop },
+        ease: "power1.inOut",
+        onComplete: () => {
+          this.isScrollingAutomatically = false;
+        }
+      });
     }, 300);
   }
 
