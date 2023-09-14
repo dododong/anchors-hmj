@@ -51,8 +51,7 @@ class ParallaxAnimation {
       },
       onEnterBack: () => {
         this.lockAndScroll();
-      },
-      markers: true // 마커를 화면에 표시 (개발 중에만 사용)
+      }
     });
 
     this.yOffset = document.querySelector(".highlights").offsetTop;
@@ -675,6 +674,47 @@ class ParallaxAnimation {
   }
 }
 
+// 230911 header height 변경값에 따라 img 위치값 변경
+function ChangeImgTop(){
+  const windowWidth = window.innerWidth; // window width
+  const $header = document.querySelector('.hmj-header');
+  const $partCar = document.querySelector('#part-car');
+  const $highlights = document.querySelector('.highlights');
+  const headerHeight = $header.offsetHeight;
+  const menuHeight = document.querySelector('#menuWrap').offsetHeight;
+  let totalHeader = headerHeight + menuHeight;
+
+  if(windowWidth <= 1119 ){
+    // mo
+    if ($header.classList.contains('scr-chk')) {
+      // one line header
+      $partCar.style.setProperty('--mo-height1', 'calc(45% - '+menuHeight+'px)');
+      $highlights.style.setProperty('--mo-transform', 'translateY('+menuHeight+'px)');
+      $partCar.style.setProperty('--mo-height2', 'calc(55% - '+menuHeight+'px)')
+    } else {
+      // two line header
+      $partCar.style.setProperty('--mo-height1', 'calc(45% - '+totalHeader+'px)');
+      $highlights.style.setProperty('--mo-transform', 'translateY('+totalHeader+'px)');
+      $partCar.style.setProperty('--mo-height2', 'calc(55% - '+totalHeader+'px)')
+    }
+  } else {
+    // pc
+    if ($header.classList.contains('scr-chk')) {
+      // one line header
+      $partCar.style.setProperty('--pc-height', 'calc(100vh - '+menuHeight+'px)');
+      $partCar.style.setProperty('--pc-top', menuHeight + 'px');
+    } else {
+      // two line header
+      $partCar.style.setProperty('--pc-height', 'calc(100vh - '+totalHeader+'px)');
+      $partCar.style.setProperty('--pc-top', totalHeader + 'px');
+    }
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   new ParallaxAnimation();
+  ChangeImgTop();
+});
+document.addEventListener('scroll' , function(){
+  ChangeImgTop();
 });
