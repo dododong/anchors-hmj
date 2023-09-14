@@ -190,12 +190,18 @@ class ParallaxAnimation {
 
     this.startAnimation = (exteriorMoveY, interiorMoveY) => {
       this.isLoadingComplete = true;
-
       this.timeline.to("#part-car img", {
-        duration: 0.01,
+        duration: 0.5,
         opacity: 1,
-        ease: Back.linear
+        ease: "back.in"
       });
+
+      this.timeline.add(
+        gsap.set(".explain-highlights", {
+          opacity: 1
+        })
+      );
+
       let images = this.getImages(1, 35);
       images.forEach((image, index) => {
         this.timeline.set(
@@ -204,6 +210,7 @@ class ParallaxAnimation {
           index * this.frame
         );
       });
+
       this.timeline.add(
         gsap.to(".part-text.one", {
           duration: 0.5,
@@ -675,38 +682,62 @@ class ParallaxAnimation {
 }
 
 // 230911 header height 변경값에 따라 img 위치값 변경
-function ChangeImgTop(){
+function ChangeImgTop() {
   const windowWidth = window.innerWidth; // window width
-  const $header = document.querySelector('.hmj-header');
-  const $partCar = document.querySelector('#part-car');
-  const $highlights = document.querySelector('.highlights');
+  const $header = document.querySelector(".hmj-header");
+  const $partCar = document.querySelector("#part-car");
+  const $highlights = document.querySelector(".highlights");
   const headerHeight = $header.offsetHeight;
-  const menuHeight = document.querySelector('#menuWrap').offsetHeight;
+  const menuHeight = document.querySelector("#menuWrap").offsetHeight;
   let totalHeader = headerHeight + menuHeight;
 
-  if(windowWidth <= 1119 ){
+  if (windowWidth <= 1119) {
     // mo
-    if ($header.classList.contains('scr-chk')) {
+    if ($header.classList.contains("scr-chk")) {
       // one line header
-      $partCar.style.setProperty('--mo-height1', 'calc(45% - '+menuHeight+'px)');
-      $highlights.style.setProperty('--mo-transform', 'translateY('+menuHeight+'px)');
-      $partCar.style.setProperty('--mo-height2', 'calc(55% - '+menuHeight+'px)')
+      $partCar.style.setProperty(
+        "--mo-height1",
+        "calc(45% - " + menuHeight + "px)"
+      );
+      $highlights.style.setProperty(
+        "--mo-transform",
+        "translateY(" + menuHeight + "px)"
+      );
+      $partCar.style.setProperty(
+        "--mo-height2",
+        "calc(55% - " + menuHeight + "px)"
+      );
     } else {
       // two line header
-      $partCar.style.setProperty('--mo-height1', 'calc(45% - '+totalHeader+'px)');
-      $highlights.style.setProperty('--mo-transform', 'translateY('+totalHeader+'px)');
-      $partCar.style.setProperty('--mo-height2', 'calc(55% - '+totalHeader+'px)')
+      $partCar.style.setProperty(
+        "--mo-height1",
+        "calc(45% - " + totalHeader + "px)"
+      );
+      $highlights.style.setProperty(
+        "--mo-transform",
+        "translateY(" + totalHeader + "px)"
+      );
+      $partCar.style.setProperty(
+        "--mo-height2",
+        "calc(55% - " + totalHeader + "px)"
+      );
     }
   } else {
     // pc
-    if ($header.classList.contains('scr-chk')) {
+    if ($header.classList.contains("scr-chk")) {
       // one line header
-      $partCar.style.setProperty('--pc-height', 'calc(100vh - '+menuHeight+'px)');
-      $partCar.style.setProperty('--pc-top', menuHeight + 'px');
+      $partCar.style.setProperty(
+        "--pc-height",
+        "calc(100vh - " + menuHeight + "px)"
+      );
+      $partCar.style.setProperty("--pc-top", menuHeight + "px");
     } else {
       // two line header
-      $partCar.style.setProperty('--pc-height', 'calc(100vh - '+totalHeader+'px)');
-      $partCar.style.setProperty('--pc-top', totalHeader + 'px');
+      $partCar.style.setProperty(
+        "--pc-height",
+        "calc(100vh - " + totalHeader + "px)"
+      );
+      $partCar.style.setProperty("--pc-top", totalHeader + "px");
     }
   }
 }
@@ -715,6 +746,6 @@ document.addEventListener("DOMContentLoaded", function() {
   new ParallaxAnimation();
   ChangeImgTop();
 });
-document.addEventListener('scroll' , function(){
+document.addEventListener("scroll", function() {
   ChangeImgTop();
 });
