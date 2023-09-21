@@ -17,6 +17,7 @@ class ParallaxAnimation {
     this.frame = 0.033;
     this.startY = 0;
     this.isScrollingAutomatically = false;
+    this.isMobile = false;
 
     this.initializeTimelines();
     this.touchStart = this.handleStart.bind(this);
@@ -58,8 +59,25 @@ class ParallaxAnimation {
     this.lastStepCount = 9;
     this.exteriorMoveY = 0;
     this.interiorMoveY = 0;
+
+    this.btnTop = document.getElementById("reset-highlight");
+    if (this.btnTop) {
+      this.btnTop.addEventListener("click", this.reset.bind(this));
+    }
   }
 
+  reset(e) {
+    this.resetScroll();
+    this.isScrollingAutomatically = false;
+    this.currentStep = 0;
+    this.nowTimeline.pause(0);
+    gsap.set(
+      "#part-car img, .part-text, .explain-highlights, .kona .highlights",
+      {
+        clearProps: "all"
+      }
+    );
+  }
   resetScroll() {
     this.scrollStart = false;
     gsap.killTweensOf(window);
@@ -70,6 +88,7 @@ class ParallaxAnimation {
     const [firstImagePath] = this.addImage(1, 2);
     if (imgElement && firstImagePath) {
       imgElement.src = firstImagePath;
+      imgElement.style.opacity = 0;
     }
   }
 
@@ -113,12 +132,14 @@ class ParallaxAnimation {
       //모바일시 경로
       path = "../../Image/mobile/";
       this.exteriorMoveY = "0%";
-      this.interiorMoveY = "40%";
+      this.interiorMoveY = "0%";
+      this.isMobile = true;
     } else {
       //PC버전시 경로
       path = "../../Image/pc/";
       this.exteriorMoveY = "-50%";
-      this.interiorMoveY = "100%";
+      this.interiorMoveY = "350%";
+      this.isMobile = false;
     }
     let images = [];
     for (let i = start; i < start + count; i++) {
@@ -190,6 +211,8 @@ class ParallaxAnimation {
 
     this.startAnimation = (exteriorMoveY, interiorMoveY) => {
       this.isLoadingComplete = true;
+      let newY = 0;
+
       this.timeline.to("#part-car img", {
         duration: 0.5,
         opacity: 1,
@@ -198,6 +221,12 @@ class ParallaxAnimation {
 
       this.timeline.add(
         gsap.set(".explain-highlights", {
+          opacity: 1
+        })
+      );
+
+      this.timeline.add(
+        gsap.set(".explain-highlights p", {
           opacity: 1
         })
       );
@@ -297,18 +326,64 @@ class ParallaxAnimation {
             "linear-gradient(to bottom, #1E1A19 20%, #1E1A19 59%, #d9dfe5)",
           ease: Back.linear
         },
-        0.4
+        0
+      );
+
+      timeline2_child.to(
+        ".part-text.three",
+        {
+          duration: 1,
+          color: "#ffffff",
+          ease: Back.linear
+        },
+        0
+      );
+
+      timeline2_child.to(
+        ".explain-highlights",
+        {
+          duration: 1,
+          color: "#ffffff",
+          ease: Back.linear
+        },
+        0
       );
 
       let timeline2_child_1 = gsap.timeline({ paused: true });
 
-      timeline2_child_1.to(".kona .highlights", {
-        duration: 1,
-        backgroundImage:
-          "linear-gradient(to bottom, #fff 20%, #dee2e5 59%, #d9dfe5)",
-        ease: Back.linear,
-        delay: 1
-      });
+      timeline2_child_1.to(
+        ".part-text.three",
+        {
+          duration: 1,
+          color: "#000",
+          ease: Back.linear,
+          delay: 1
+        },
+        0
+      );
+
+      timeline2_child_1.to(
+        ".explain-highlights",
+        {
+          duration: 1,
+          color: "#000",
+          ease: Back.linear,
+          delay: 1
+        },
+        0
+      );
+
+      timeline2_child_1.to(
+        ".kona .highlights",
+        {
+          duration: 1,
+          backgroundImage:
+            "linear-gradient(to bottom, #fff 20%, #dee2e5 59%, #d9dfe5)",
+          ease: Back.linear,
+          delay: 1
+        },
+        0
+      );
       let images2_child_1 = this.getImages(171, 190);
       images2_child_1.forEach((image, index) => {
         timeline2_child_1.set(
@@ -349,10 +424,13 @@ class ParallaxAnimation {
         );
       });
 
+      const four = this.isMobile ? 40 : 0;
+      newY = parseFloat(exteriorMoveY) - four + "%";
+
       timeline3_child.add(
         gsap.to(".part-text.four", {
           duration: 0.5,
-          y: exteriorMoveY,
+          y: newY,
           opacity: 1,
           ease: Back.linear
         })
@@ -378,10 +456,13 @@ class ParallaxAnimation {
         );
       });
 
+      const five = this.isMobile ? 40 : 0;
+      newY = parseFloat(exteriorMoveY) - five + "%";
+
       this.timeline4.add(
         gsap.to(".part-text.five", {
           duration: 0.5,
-          y: exteriorMoveY,
+          y: newY,
           opacity: 1,
           ease: Back.linear
         })
@@ -413,10 +494,13 @@ class ParallaxAnimation {
         })
       );
 
+      const six = this.isMobile ? 0 : 100;
+      newY = parseFloat(interiorMoveY) - six + "%";
+
       this.timeline5.add(
         gsap.to(".part-text.six", {
           duration: 0.5,
-          y: interiorMoveY,
+          y: newY,
           opacity: 1,
           ease: Back.linear
         })
@@ -493,10 +577,13 @@ class ParallaxAnimation {
         );
       });
 
+      const nine = this.isMobile ? 40 : 300;
+      newY = parseFloat(interiorMoveY) - nine + "%";
+
       this.timeline8.add(
         gsap.to(".part-text.nine", {
           duration: 0.5,
-          y: interiorMoveY,
+          y: newY,
           opacity: 1,
           ease: Back.linear
         })
@@ -556,6 +643,7 @@ class ParallaxAnimation {
         end.restart();
       }
     });
+    this.nowTimeline = tl;
   }
 
   reverseTimeline(tl) {
