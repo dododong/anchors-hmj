@@ -138,7 +138,7 @@ class ParallaxAnimation {
       //PC버전시 경로
       path = "../../Image/pc/";
       this.exteriorMoveY = "-50%";
-      this.interiorMoveY = "350%";
+      this.interiorMoveY = "100%";
       this.isMobile = false;
     }
     let images = [];
@@ -494,7 +494,7 @@ class ParallaxAnimation {
         })
       );
 
-      const six = this.isMobile ? 0 : 100;
+      const six = this.isMobile ? 0 : 0;
       newY = parseFloat(interiorMoveY) - six + "%";
 
       this.timeline5.add(
@@ -577,7 +577,7 @@ class ParallaxAnimation {
         );
       });
 
-      const nine = this.isMobile ? 40 : 300;
+      const nine = this.isMobile ? 40 : 100;
       newY = parseFloat(interiorMoveY) - nine + "%";
 
       this.timeline8.add(
