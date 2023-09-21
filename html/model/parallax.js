@@ -138,7 +138,7 @@ class ParallaxAnimation {
       //PC버전시 경로
       path = "../../Image/pc/";
       this.exteriorMoveY = "-50%";
-      this.interiorMoveY = "100%";
+      this.interiorMoveY = "-20px";
       this.isMobile = false;
     }
     let images = [];
@@ -494,13 +494,10 @@ class ParallaxAnimation {
         })
       );
 
-      const six = this.isMobile ? 0 : 0;
-      newY = parseFloat(interiorMoveY) - six + "%";
-
       this.timeline5.add(
         gsap.to(".part-text.six", {
           duration: 0.5,
-          y: newY,
+          bottom: interiorMoveY,
           opacity: 1,
           ease: Back.linear
         })
@@ -527,7 +524,7 @@ class ParallaxAnimation {
       this.timeline6.add(
         gsap.to(".part-text.seven", {
           duration: 0.5,
-          y: interiorMoveY,
+          bottom: interiorMoveY,
           opacity: 1,
           ease: Back.linear
         })
@@ -553,7 +550,7 @@ class ParallaxAnimation {
       this.timeline7.add(
         gsap.to(".part-text.eight", {
           duration: 0.5,
-          y: interiorMoveY,
+          bottom: interiorMoveY,
           opacity: 1,
           ease: Back.linear
         })
@@ -577,13 +574,13 @@ class ParallaxAnimation {
         );
       });
 
-      const nine = this.isMobile ? 40 : 100;
-      newY = parseFloat(interiorMoveY) - nine + "%";
+      const six = this.isMobile ? 0 : 20;
+      newY = parseFloat(interiorMoveY) + six + "px";
 
       this.timeline8.add(
         gsap.to(".part-text.nine", {
           duration: 0.5,
-          y: newY,
+          bottom: newY,
           opacity: 1,
           ease: Back.linear
         })

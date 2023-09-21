@@ -5572,6 +5572,7 @@
   margin-left: 0;
   width: auto;
   left: -22vw;
+  bottom: -100px;
 }
 
 @media screen and (max-width: 1119px) {
