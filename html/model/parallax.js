@@ -132,7 +132,7 @@ class ParallaxAnimation {
       //모바일시 경로
       path = "../../Image/mobile/";
       this.exteriorMoveY = "0%";
-      this.interiorMoveY = "0%";
+      this.interiorMoveY = "10%";
       this.isMobile = true;
     } else {
       //PC버전시 경로
@@ -626,7 +626,7 @@ class ParallaxAnimation {
         this.resetScroll();
         this.isEnd = false;
         this.currentStep = 0;
-        const yOffset = document.querySelector(".highlights").offsetTop + 30;
+        const yOffset = document.querySelector(".highlights").offsetTop + 150;
 
         const end = gsap.timeline({ paused: true });
         end.add(
@@ -655,7 +655,7 @@ class ParallaxAnimation {
       this.isAnimating = false;
       if (this.currentStep < 1) {
         this.resetScroll();
-        const yOffset = document.querySelector(".highlights").offsetTop - 100;
+        const yOffset = document.querySelector(".highlights").offsetTop - 150;
         const end = gsap.timeline({ paused: true });
         end.add(
           gsap.to(window, {
